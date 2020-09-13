@@ -29,9 +29,15 @@ df_1
 The following code attempts to take the mean of each vector. 
 
 ```{r calculation of mean}
-#vec_rand
-mean(rnorm(10))
-
-#vec_logic
 ```
+
+# Question 2
+
+Load the penguins dataset:
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+The penguins dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. 
 
