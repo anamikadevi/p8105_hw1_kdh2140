@@ -5,8 +5,24 @@ date: "9/13/2020"
 output: html_document
 ---
 
-```{r setup, include = FALSE}
+# Question 1
+
+The following code creates a dataframe consisting of a numeric vector, a logic vector, a character vector, and a three level factor vector.
+
+``` {r setup, message = FALSE}
 library(tidyverse)
 ```
 
+``` {r dataframe generation}
+df_1 = tibble(vec_rand = rnorm(10),
+              vec_logic = vec_rand > 0,
+              vec_char = c("A", "B", "C", "D", "E", 
+                           "F", "G", "H", "I", "J"),
+              vec_factor = factor(c("mild","mild","mild","mild",
+                                    "moderate", "moderate", "moderate",
+                                    "severe", "severe", "severe"))
+)
+
+df_1
+```
 
