@@ -39,5 +39,14 @@ Load the penguins dataset:
 data("penguins", package = "palmerpenguins")
 ```
 
-The penguins dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. 
+The penguin dataset includes the variables: `r names(penguins)`. The penguins dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is ???.
+
+The following code creates a scatterplot comparing bill length in mm to flipper length in mm by species. 
+
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, 
+                     y = flipper_length_mm, 
+                     color = species)) + geom_point()
+```
+
 
