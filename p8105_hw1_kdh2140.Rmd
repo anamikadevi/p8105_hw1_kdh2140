@@ -47,6 +47,9 @@ The following code creates a scatterplot comparing bill length in mm to flipper 
 ggplot(penguins, aes(x = bill_length_mm, 
                      y = flipper_length_mm, 
                      color = species)) + geom_point()
+
+ggsave(filename = "bill_flipper.pdf",
+       plot = last_plot())
 ```
 
 
