@@ -386,16 +386,19 @@ df_1</code></pre>
 <pre><code>## # A tibble: 10 x 4
 ##    vec_rand vec_logic vec_char vec_factor
 ##       &lt;dbl&gt; &lt;lgl&gt;     &lt;chr&gt;    &lt;fct&gt;     
-##  1    1.22  TRUE      A        mild      
-##  2   -1.03  FALSE     B        mild      
-##  3    0.635 TRUE      C        mild      
-##  4   -0.291 FALSE     D        mild      
-##  5   -0.963 FALSE     E        moderate  
-##  6    1.11  TRUE      F        moderate  
-##  7   -0.858 FALSE     G        moderate  
-##  8   -1.30  FALSE     H        severe    
-##  9   -1.22  FALSE     I        severe    
-## 10    0.838 TRUE      J        severe</code></pre>
+##  1   -1.30  FALSE     A        mild      
+##  2   -0.492 FALSE     B        mild      
+##  3   -0.278 FALSE     C        mild      
+##  4   -1.02  FALSE     D        mild      
+##  5   -0.817 FALSE     E        moderate  
+##  6    0.599 TRUE      F        moderate  
+##  7    2.40  TRUE      G        moderate  
+##  8    1.07  TRUE      H        severe    
+##  9   -0.713 FALSE     I        severe    
+## 10   -1.10  FALSE     J        severe</code></pre>
+<p>The following code attempts to take the mean of each vector.</p>
+<pre class="r"><code>mean(rnorm(10))</code></pre>
+<pre><code>## [1] -0.1837046</code></pre>
 </div>
 
 
