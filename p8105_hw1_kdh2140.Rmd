@@ -7,7 +7,7 @@ output: html_document
 
 # Question 1
 
-The following code creates a dataframe consisting of a numeric vector, a logic vector, a character vector, and a three level factor vector.
+The following code creates a dataframe (titled df_1) consisting of a numeric vector, a logic vector, a character vector, and a three level factor vector. The contents of the dataframe are displayed after.
 
 ``` {r setup, message = FALSE}
 library(tidyverse)
@@ -37,6 +37,17 @@ mean(df_1$vec_factor)
 
 The mean is calculated for the random sample vector (vec_rand) and the logic vector (vec_logic). The code produces an error for the character vector (vec_char) and the factor vector (vec_factor).
 
+The following code chunk applies the as.numeric function to the logical, character, and factor variables. The output is omitted.
+
+```{r as.numeric function, results = 'hide', warning = FALSE}
+as.numeric(df_1$vec_logic)
+as.numeric(df_1$vec_char)
+as.numeric(df_1$vec_factor)
+```
+
+The output computes the vectors into numeric functions. For example, the logic vector changes to 0 and 1 based on the true/ false status of each entry. The character vector outputs all NA. The factor vector changes each level to 1, 2, and 3, respectively. These changes allow R to then perform calculations on the vectors as if they were numeric functions. 
+
+
 # Question 2
 
 Load the penguins dataset:
@@ -45,7 +56,7 @@ Load the penguins dataset:
 data("penguins", package = "palmerpenguins")
 ```
 
-The penguin dataset includes the variables: `r names(penguins)`. The penguins dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is.
+The penguin dataset includes the variables: `r names(penguins)`. The penguins dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r mean(penguins$flipper_length_mm)`.
 
 The following code creates a scatterplot comparing bill length in mm to flipper length in mm by species. 
 
@@ -60,7 +71,6 @@ ggsave(filename = "bill_flipper.pdf",
 
 To do:
   Question 1
-    means
     second code chunk
   Question 2
     values of important variables
