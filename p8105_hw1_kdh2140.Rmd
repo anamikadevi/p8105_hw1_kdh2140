@@ -5,7 +5,7 @@ date: "9/13/2020"
 output: html_document
 ---
 
-# Question 1
+### Question 1
 
 The following code creates a dataframe (titled df_1) consisting of a numeric vector, a logic vector, a character vector, and a three level factor vector. The contents of the dataframe are displayed after.
 
@@ -14,21 +14,25 @@ library(tidyverse)
 ```
 
 ``` {r dataframe generation}
-df_1 = tibble(vec_rand = rnorm(10),
-              vec_logic = vec_rand > 0,
-              vec_char = c("A", "B", "C", "D", "E", 
-                           "F", "G", "H", "I", "J"),
-              vec_factor = factor(c("mild","mild","mild","mild",
-                                    "moderate", "moderate", "moderate",
-                                    "severe", "severe", "severe"))
-)
+df_1 = 
+  tibble(
+       vec_rand = rnorm(10),
+       vec_logic = vec_rand > 0,
+       vec_char = c("A", "B", "C", "D", "E", 
+                    "F", "G", "H", "I", "J"),
+       vec_factor = factor(c("mild","mild","mild","mild",
+                             "moderate", "moderate", "moderate",
+                             "severe", "severe", "severe"))
+  )
 
 df_1
 ```
 
-The following code attempts to take the mean of each vector. 
+The following code attempts to take the mean of each vector. It displays two possible ways to code the calculation of a vec_rand.
 
 ```{r calculation of mean}
+mean(pull(df_1,vec_rand)) 
+
 mean(df_1$vec_rand)
 mean(df_1$vec_logic)
 mean(df_1$vec_char)
@@ -47,8 +51,19 @@ as.numeric(df_1$vec_factor)
 
 The output computes the vectors into numeric functions. For example, the logic vector changes to 0 and 1 based on the true/ false status of each entry. The character vector outputs all NA. The factor vector changes each level to 1, 2, and 3, respectively. These changes allow R to then perform calculations on the vectors as if they were numeric functions. 
 
+The following code chunk performs various procedures, as outlined in the comments.
+```{r}
+#Convert the logical vector to numeric and multiply the random sample by the result.
+as.numeric(df_1$vec_logic)*(df_1$vec_rand)
 
-# Question 2
+#Convert the logical vector to a factor and multiply the random sample by the result.
+
+#convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result
+
+```
+
+
+### Question 2
 
 Load the penguins dataset:
 
@@ -56,7 +71,7 @@ Load the penguins dataset:
 data("penguins", package = "palmerpenguins")
 ```
 
-The penguin dataset includes the variables: `r names(penguins)`. The penguins dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r mean(penguins$flipper_length_mm)`.
+The penguin dataset includes the variables: `r names(penguins)`. The dataset variables addresses demographic and individual aspects of the penguins examined. The penguins dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm=TRUE)`.
 
 The following code creates a scatterplot comparing bill length in mm to flipper length in mm by species. 
 
@@ -69,10 +84,4 @@ ggsave(filename = "bill_flipper.pdf",
        plot = last_plot())
 ```
 
-To do:
-  Question 1
-    second code chunk
-  Question 2
-    values of important variables
-    mean flipper length
 
