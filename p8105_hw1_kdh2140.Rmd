@@ -57,9 +57,11 @@ The following code chunk performs various procedures, as outlined in the comment
 as.numeric(df_1$vec_logic)*(df_1$vec_rand)
 
 #Convert the logical vector to a factor and multiply the random sample by the result.
+as.factor(df_1$vec_logic)*(df_1$vec_rand)
 
 #convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result
-
+vec_logic_2 <- as.factor(df_1$vec_logic)
+as.numeric(vec_logic_2)*(df_1$vec_rand)
 ```
 
 
@@ -71,7 +73,7 @@ Load the penguins dataset:
 data("penguins", package = "palmerpenguins")
 ```
 
-The penguin dataset includes the variables: `r names(penguins)`. The dataset variables addresses demographic and individual aspects of the penguins examined. The penguins dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm=TRUE)`.
+The penguin dataset includes the variables: `r names(penguins)`. The dataset variables address demographic and individual aspects of the penguins examined. The penguins dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r mean(penguins$flipper_length_mm, na.rm=TRUE)`.
 
 The following code creates a scatterplot comparing bill length in mm to flipper length in mm by species. 
 
