@@ -29,7 +29,13 @@ df_1
 The following code attempts to take the mean of each vector. 
 
 ```{r calculation of mean}
+mean(df_1$vec_rand)
+mean(df_1$vec_logic)
+mean(df_1$vec_char)
+mean(df_1$vec_factor)
 ```
+
+The mean is calculated for the random sample vector (vec_rand) and the logic vector (vec_logic). The code produces an error for the character vector (vec_char) and the factor vector (vec_factor).
 
 # Question 2
 
@@ -39,7 +45,7 @@ Load the penguins dataset:
 data("penguins", package = "palmerpenguins")
 ```
 
-The penguin dataset includes the variables: `r names(penguins)`. The penguins dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is ???.
+The penguin dataset includes the variables: `r names(penguins)`. The penguins dataset consists of `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is.
 
 The following code creates a scatterplot comparing bill length in mm to flipper length in mm by species. 
 
@@ -52,4 +58,11 @@ ggsave(filename = "bill_flipper.pdf",
        plot = last_plot())
 ```
 
+To do:
+  Question 1
+    means
+    second code chunk
+  Question 2
+    values of important variables
+    mean flipper length
 
