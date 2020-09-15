@@ -13,7 +13,7 @@ The following code creates a dataframe (titled df_1) consisting of a numeric vec
 library(tidyverse)
 ```
 
-``` {r dataframe generation}
+``` {r dataframe_generation}
 df_1 = 
   tibble(
        vec_rand = rnorm(10),
@@ -30,7 +30,7 @@ df_1
 
 The following code attempts to take the mean of each vector. It displays two possible ways to code the calculation of a vec_rand.
 
-```{r calculation of mean}
+```{r calculation_of_mean}
 mean(pull(df_1,vec_rand)) 
 
 mean(df_1$vec_rand)
@@ -43,7 +43,7 @@ The mean is calculated for the random sample vector (vec_rand) and the logic vec
 
 The following code chunk applies the as.numeric function to the logical, character, and factor variables. The output is omitted.
 
-```{r as.numeric function, results = 'hide', warning = FALSE}
+```{r as.numeric_function, results = 'hide', warning = FALSE}
 as.numeric(df_1$vec_logic)
 as.numeric(df_1$vec_char)
 as.numeric(df_1$vec_factor)
@@ -52,7 +52,7 @@ as.numeric(df_1$vec_factor)
 The output computes the vectors into numeric functions. For example, the logic vector changes to 0 and 1 based on the true/ false status of each entry. The character vector outputs all NA. The factor vector changes each level to 1, 2, and 3, respectively. These changes allow R to then perform calculations on the vectors as if they were numeric functions. 
 
 The following code chunk performs various procedures, as outlined in the comments.
-```{r}
+```{r manipulation_of_vectors}
 #Convert the logical vector to numeric and multiply the random sample by the result.
 as.numeric(df_1$vec_logic)*(df_1$vec_rand)
 
@@ -67,7 +67,7 @@ as.numeric(df_1$vec_logic)*(df_1$vec_rand)
 
 Load the penguins dataset:
 
-```{r}
+```{r load_dataset_package}
 data("penguins", package = "palmerpenguins")
 ```
 
@@ -75,7 +75,7 @@ The penguin dataset includes the variables: `r names(penguins)`. The dataset var
 
 The following code creates a scatterplot comparing bill length in mm to flipper length in mm by species. 
 
-```{r}
+```{r create_scatterplot}
 ggplot(penguins, aes(x = bill_length_mm, 
                      y = flipper_length_mm, 
                      color = species)) + geom_point()
